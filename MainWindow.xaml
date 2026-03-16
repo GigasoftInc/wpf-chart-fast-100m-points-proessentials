@@ -1,0 +1,136 @@
+<Window x:Class="GigaPrime2D_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GigaPrime2D_WPF"
+        xmlns:Gigasoft="clr-namespace:Gigasoft.ProEssentials;assembly=Gigasoft.ProEssentialsWpf"
+        mc:Ignorable="d"
+        Title="GigaPrime2D WPF — 100 Million Points"
+        Height="800" Width="1400"
+        MinHeight="500" MinWidth="800"
+        Background="#002B35"
+        Closing="Window_Closing">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="190" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Left control panel -->
+        <StackPanel Grid.Column="0"
+                    Background="#002B35"
+                    Margin="8,8,4,8">
+
+            <!-- Timer control -->
+            <CheckBox x:Name="timerControl"
+                      Content="Start/Stop Timer"
+                      Foreground="White"
+                      Margin="0,4,0,8"
+                      Checked="TimerControl_Changed"
+                      Unchecked="TimerControl_Changed" />
+
+            <Separator Background="#335566" Margin="0,0,0,8" />
+
+            <!-- Axes controls -->
+            <CheckBox x:Name="combineAxes"
+                      Content="Combine Axes"
+                      Foreground="White"
+                      Margin="0,2,0,2"
+                      Checked="CombineAxes_Changed"
+                      Unchecked="CombineAxes_Changed" />
+
+            <CheckBox x:Name="hideAxes"
+                      Content="Hide Overlapped Axes"
+                      Foreground="White"
+                      IsEnabled="False"
+                      Margin="0,2,0,2"
+                      Checked="HideAxes_Changed"
+                      Unchecked="HideAxes_Changed" />
+
+            <CheckBox x:Name="showLegend"
+                      Content="Show Legend"
+                      Foreground="White"
+                      Margin="0,2,0,8"
+                      Checked="ShowLegend_Changed"
+                      Unchecked="ShowLegend_Changed" />
+
+            <Separator Background="#335566" Margin="0,0,0,8" />
+
+            <!-- Zoom slider -->
+            <TextBlock Text="Zoom X Axes"
+                       Foreground="White"
+                       FontSize="11"
+                       Margin="0,0,0,2" />
+            <Slider x:Name="sliderSampleView"
+                    Minimum="1" Maximum="1000"
+                    Value="175"
+                    TickFrequency="100"
+                    SmallChange="1" LargeChange="10"
+                    Margin="0,0,0,8"
+                    ValueChanged="SliderSampleView_ValueChanged" />
+
+            <Separator Background="#335566" Margin="0,0,0,8" />
+
+            <!-- Highlight axes -->
+            <TextBlock Text="Highlight Signal"
+                       Foreground="White"
+                       FontSize="11"
+                       Margin="0,0,0,4" />
+
+            <CheckBox x:Name="highlightAxis1"
+                      Content="Signal 1"
+                      Foreground="#FF0045"
+                      Margin="0,2,0,2"
+                      Checked="HighlightAxis1_Changed"
+                      Unchecked="HighlightAxis1_Changed" />
+
+            <CheckBox x:Name="highlightAxis2"
+                      Content="Signal 2"
+                      Foreground="#3FFF00"
+                      Margin="0,2,0,2"
+                      Checked="HighlightAxis2_Changed"
+                      Unchecked="HighlightAxis2_Changed" />
+
+            <CheckBox x:Name="highlightAxis3"
+                      Content="Signal 3"
+                      Foreground="#FFA800"
+                      Margin="0,2,0,2"
+                      Checked="HighlightAxis3_Changed"
+                      Unchecked="HighlightAxis3_Changed" />
+
+            <CheckBox x:Name="highlightAxis4"
+                      Content="Signal 4"
+                      Foreground="#FF14FF"
+                      Margin="0,2,0,2"
+                      Checked="HighlightAxis4_Changed"
+                      Unchecked="HighlightAxis4_Changed" />
+
+            <CheckBox x:Name="highlightAxis5"
+                      Content="Signal 5"
+                      Foreground="#1AFFFF"
+                      Margin="0,2,0,8"
+                      Checked="HighlightAxis5_Changed"
+                      Unchecked="HighlightAxis5_Changed" />
+
+            <Separator Background="#335566" Margin="0,0,0,8" />
+
+            <Button Content="Help"
+                    Background="#335566"
+                    Foreground="White"
+                    BorderBrush="#557788"
+                    Padding="8,4"
+                    HorizontalAlignment="Left"
+                    Click="HelpButton_Click" />
+
+        </StackPanel>
+
+        <!-- Right chart panel -->
+        <Gigasoft:PesgoWpf x:Name="Pesgo1"
+                           Grid.Column="1"
+                           Margin="4,8,8,8"
+                           Loaded="Pesgo1_Loaded" />
+
+    </Grid>
+</Window>
