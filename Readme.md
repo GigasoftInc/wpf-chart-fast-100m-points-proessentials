@@ -4,7 +4,7 @@ A ProEssentials v10 WPF .NET 8 demonstration of GPU compute shader rendering —
 100 million data points completely re-passed and re-rendered per timer tick.
 Live FPS displayed in the title bar.
 
-![GigaPrime2D WPF 100 Million Points](https://gigasoft.com/files/GigaPrime2D-100MPoints-Wpf.png)
+![GigaPrime2D WPF 100 Million Points](docs/GigaPrime2D-100MPoints-Wpf.png)
 
 ---
 
